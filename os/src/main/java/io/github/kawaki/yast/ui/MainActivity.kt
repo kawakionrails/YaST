@@ -1,5 +1,6 @@
 package io.github.kawaki.yast.ui
 
+import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.databinding.ActivityMainBinding
@@ -13,6 +14,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun getViewBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setUpActivity()
     }
 
     private fun setUpActivity() {

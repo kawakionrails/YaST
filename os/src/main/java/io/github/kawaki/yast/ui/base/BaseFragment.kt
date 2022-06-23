@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import io.github.kawaki.yast.utils.Constants
-import java.lang.IllegalArgumentException
 
 abstract class BaseFragment<VIEW_BINDING : ViewBinding>(
-    private val layoutInflater: (
-        layoutInflater: LayoutInflater
-    ) -> VIEW_BINDING
+    private val inflater: (
+        layoutInflater: LayoutInflater,
+    ) -> VIEW_BINDING,
 ) : Fragment() {
 
     private var _binding: VIEW_BINDING? = null
@@ -21,14 +20,19 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding>(
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        _binding = layoutInflater.invoke(inflater)
+        _binding = this.inflater.invoke(inflater)
         if (_binding != null) {
             return binding.root
         } else {
             throw IllegalArgumentException(Constants.BINDING_CANNOT_BE_NULL)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

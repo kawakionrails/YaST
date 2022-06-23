@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import io.github.kawaki.yast.databinding.ActivityMainBinding
 import io.github.kawaki.yast.utils.Constants
-import java.lang.IllegalArgumentException
 
 abstract class BaseActivity<VIEW_BINDING : ViewBinding>(
-    private val layoutInflater: (
-        layoutInflater: LayoutInflater
-    ) -> VIEW_BINDING
+    private val inflater: (
+        layoutInflater: LayoutInflater,
+    ) -> VIEW_BINDING,
 ) : AppCompatActivity() {
 
     private var _binding: VIEW_BINDING? = null
@@ -19,11 +17,17 @@ abstract class BaseActivity<VIEW_BINDING : ViewBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        _binding = inflater.invoke(layoutInflater)
         if (_binding != null) {
-            _binding = getViewBinding()
+            setContentView(binding.root)
         } else {
             throw IllegalArgumentException(Constants.BINDING_CANNOT_BE_NULL)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     protected abstract fun getViewBinding(): VIEW_BINDING
