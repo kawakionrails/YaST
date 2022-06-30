@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.databinding.FragmentHomeBinding
+import io.github.kawaki.yast.enum.ShellVisibility
+import io.github.kawaki.yast.ui.MainActivity
 import io.github.kawaki.yast.ui.base.BaseFragment
 
 @AndroidEntryPoint
@@ -17,7 +19,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setUpFragment() {
-        // TODO: Not yet implemented
+        setUpScreen()
+    }
+
+    private fun setUpScreen() {
+        (activity as MainActivity).setShellVisibility(ShellVisibility.VISIBLE)
     }
 
 }

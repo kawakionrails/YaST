@@ -1,4 +1,4 @@
-package io.github.kawaki.yast.utils
+package io.github.kawaki.yast.extensions
 
 import android.view.View
 import androidx.constraintlayout.widget.Group
