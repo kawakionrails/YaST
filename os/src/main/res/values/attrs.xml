@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppView">
+        <attr name="app_view_app_icon_image" format="reference" />
+        <attr name="app_view_app_icon_background" format="color" />
+        <attr name="app_view_app_name" format="string" />
+    </declare-styleable>
+
+</resources>
