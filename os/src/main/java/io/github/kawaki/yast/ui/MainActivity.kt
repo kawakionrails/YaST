@@ -7,17 +7,13 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.NavHost
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ActivityMainBinding
 import io.github.kawaki.yast.enum.FullscreenMode
 import io.github.kawaki.yast.ui.base.BaseActivity
-import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
@@ -37,6 +33,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
     }
     private val intentFilter: IntentFilter = IntentFilter()
+    private val navHostFragment: NavHostFragment by lazy { supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment }
+    private val navController: NavController by lazy { navHostFragment.navController }
+    private val onDestinationChangedListener: NavController.OnDestinationChangedListener =
+        NavController.OnDestinationChangedListener { _, _, _ ->
+            setUpShell()
+        }
 
     override fun getViewBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
@@ -49,7 +51,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     private fun setUpActivity() {
         setUpBroadcastReceiver()
+        setUpShell()
         setUpClock()
+        setUpObservables()
         viewModel.setFullscreenMode(window, binding.root, FullscreenMode.TRUE)
     }
 
@@ -58,8 +62,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         registerReceiver(broadcastReceiver, intentFilter)
     }
 
+    private fun setUpShell() {
+        viewModel.getFragmentsWithShell.forEach {
+            if (navController.currentDestination?.id == it) {
+                binding.shell.visibility = View.VISIBLE
+            } else {
+                binding.shell.visibility = View.GONE
+            }
+        }
+    }
+
     private fun setUpClock() {
         binding.clock.text = viewModel.getClockValue()
+    }
+
+    private fun setUpObservables() {
+        navController.addOnDestinationChangedListener(onDestinationChangedListener)
     }
 
 }
