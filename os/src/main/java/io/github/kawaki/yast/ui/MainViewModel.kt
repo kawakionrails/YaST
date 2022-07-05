@@ -7,6 +7,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.kawaki.yast.R
 import io.github.kawaki.yast.enum.FullscreenMode
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,6 +15,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
+
+    val getFragmentsWithShell: MutableList<Int> = mutableListOf(
+        R.id.homeFragment,
+        R.id.settingsFragment
+    )
 
     fun setFullscreenMode(window: Window, view: View, fullscreenMode: FullscreenMode) {
         when (fullscreenMode) {

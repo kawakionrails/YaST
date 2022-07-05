@@ -9,9 +9,7 @@ import androidx.viewbinding.ViewBinding
 import io.github.kawaki.yast.utils.Constants
 
 abstract class BaseFragment<VIEW_BINDING : ViewBinding>(
-    private val inflater: (
-        layoutInflater: LayoutInflater,
-    ) -> VIEW_BINDING,
+    private val layoutInflater: (inflater: LayoutInflater) -> VIEW_BINDING
 ) : Fragment() {
 
     private var _binding: VIEW_BINDING? = null
@@ -20,9 +18,9 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding>(
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
-        _binding = this.inflater.invoke(inflater)
+        _binding = layoutInflater.invoke(inflater)
         if (_binding != null) {
             return binding.root
         } else {

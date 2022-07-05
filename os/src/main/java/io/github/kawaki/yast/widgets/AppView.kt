@@ -31,8 +31,10 @@ class AppView @JvmOverloads constructor(
             appIconImage =
                 getDrawable(R.styleable.AppView_app_view_app_icon_image)
             appIconBackground =
-                getColor(R.styleable.AppView_app_view_app_icon_background,
-                    context.getColor(DEF_APP_ICON_BACKGROUND))
+                getColor(
+                    R.styleable.AppView_app_view_app_icon_background,
+                    context.getColor(DEF_APP_ICON_BACKGROUND)
+                )
             appName =
                 getString(R.styleable.AppView_app_view_app_name)
         }
@@ -40,23 +42,7 @@ class AppView @JvmOverloads constructor(
     }
 
     private fun setUpView() {
-        setUpAppIconImage()
-        setUpAppIconBackground()
-        setUpAppName()
-    }
-
-    private fun setUpAppIconImage() {
-        if (appIconImage != null) binding.appIconImage.setImageDrawable(appIconImage)
-    }
-
-    private fun setUpAppIconBackground() {
-        if (appIconBackground != null) binding.appIcon.setBackgroundColor(
-            context.getColor(appIconBackground ?: DEF_APP_ICON_BACKGROUND)
-        )
-    }
-
-    private fun setUpAppName() {
-        if (appName != null) binding.appName.text = appName
+        // TODO: Not yet implemented
     }
 
 }

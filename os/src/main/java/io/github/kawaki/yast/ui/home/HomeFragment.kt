@@ -1,10 +1,12 @@
 package io.github.kawaki.yast.ui.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.FragmentHomeBinding
-import io.github.kawaki.yast.ui.MainActivity
 import io.github.kawaki.yast.ui.base.BaseFragment
 
 @AndroidEntryPoint
@@ -12,13 +14,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private val viewModel by viewModels<HomeViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpFragment()
     }
 
     private fun setUpFragment() {
-        // TODO: Not yet implemented
+        setUpObservables()
+    }
+
+    private fun setUpObservables() {
+        binding.root.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+        }
     }
 
 }
