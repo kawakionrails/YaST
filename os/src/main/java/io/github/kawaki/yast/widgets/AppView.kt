@@ -31,8 +31,10 @@ class AppView @JvmOverloads constructor(
             appIconImage =
                 getDrawable(R.styleable.AppView_app_view_app_icon_image)
             appIconBackground =
-                getColor(R.styleable.AppView_app_view_app_icon_background,
-                    context.getColor(DEF_APP_ICON_BACKGROUND))
+                getColor(
+                    R.styleable.AppView_app_view_app_icon_background,
+                    context.getColor(DEF_APP_ICON_BACKGROUND)
+                )
             appName =
                 getString(R.styleable.AppView_app_view_app_name)
         }

@@ -1,12 +1,12 @@
 package io.github.kawaki.yast.ui.splash
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.FragmentSplashBinding
-import io.github.kawaki.yast.ui.MainActivity
 import io.github.kawaki.yast.ui.base.BaseFragment
 
 @AndroidEntryPoint
@@ -18,8 +18,8 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
 
     private val viewModel by viewModels<SplashViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpFragment()
     }
 

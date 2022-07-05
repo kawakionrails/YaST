@@ -14,7 +14,6 @@ import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ActivityMainBinding
 import io.github.kawaki.yast.enum.FullscreenMode
 import io.github.kawaki.yast.ui.base.BaseActivity
-import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
