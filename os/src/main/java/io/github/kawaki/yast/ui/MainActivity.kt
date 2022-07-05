@@ -54,6 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun setUpBroadcastReceiver() {
+        intentFilter.addAction(Intent.ACTION_TIME_TICK)
         registerReceiver(broadcastReceiver, intentFilter)
     }
 
