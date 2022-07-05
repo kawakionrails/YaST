@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.databinding.FragmentHomeBinding
+import io.github.kawaki.yast.ui.MainActivity
 import io.github.kawaki.yast.ui.base.BaseFragment
 
 @AndroidEntryPoint

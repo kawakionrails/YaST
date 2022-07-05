@@ -30,6 +30,6 @@ abstract class BaseActivity<VIEW_BINDING : ViewBinding>(
         _binding = null
     }
 
-    protected abstract fun getViewBinding(): VIEW_BINDING
+    abstract fun getViewBinding(): VIEW_BINDING
 
 }

@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.FragmentSplashBinding
+import io.github.kawaki.yast.ui.MainActivity
 import io.github.kawaki.yast.ui.base.BaseFragment
 
 @AndroidEntryPoint
@@ -23,13 +24,11 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
     }
 
     private fun setUpFragment() {
-        setUpObservables()
-    }
-
-    private fun setUpObservables() {
-        viewModel.goToHomeFragment(findNavController(),
+        viewModel.goToHomeFragment(
+            findNavController(),
             R.id.action_splashFragment_to_homeFragment,
-            DEF_HOME_FRAGMENT_DELAY_MILLIS)
+            DEF_HOME_FRAGMENT_DELAY_MILLIS
+        )
     }
 
 }
