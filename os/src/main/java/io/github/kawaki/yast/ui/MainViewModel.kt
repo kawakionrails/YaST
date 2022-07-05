@@ -8,6 +8,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.kawaki.yast.enum.FullscreenMode
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +32,11 @@ class MainViewModel @Inject constructor() : ViewModel() {
                 ).show(WindowInsetsCompat.Type.systemBars())
             }
         }
+    }
+
+    fun getClockValue(): String {
+        val simpleDateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return simpleDateFormat.format(Date())
     }
 
 }

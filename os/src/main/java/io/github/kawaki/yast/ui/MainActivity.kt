@@ -7,10 +7,15 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ActivityMainBinding
 import io.github.kawaki.yast.enum.FullscreenMode
-import io.github.kawaki.yast.enum.ShellVisibility
 import io.github.kawaki.yast.ui.base.BaseActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -43,11 +48,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun setUpActivity() {
-        setUpScreen()
         setUpBroadcastReceiver()
-    }
-
-    private fun setUpScreen() {
         setUpClock()
         viewModel.setFullscreenMode(window, binding.root, FullscreenMode.TRUE)
     }
@@ -57,23 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun setUpClock() {
-        val simpleDateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-        val formattedDate = simpleDateFormat.format(Date())
-        binding.clock.text = formattedDate
-    }
-
-    fun setShellVisibility(visibility: ShellVisibility) {
-        when (visibility) {
-            ShellVisibility.VISIBLE -> {
-                binding.shell.visibility = View.VISIBLE
-            }
-            ShellVisibility.INVISIBLE -> {
-                binding.shell.visibility = View.INVISIBLE
-            }
-            ShellVisibility.GONE -> {
-                binding.shell.visibility = View.GONE
-            }
-        }
+        binding.clock.text = viewModel.getClockValue()
     }
 
 }
