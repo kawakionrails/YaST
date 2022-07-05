@@ -17,7 +17,8 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor() : ViewModel() {
 
     val getFragmentsWithShell: MutableList<Int> = mutableListOf(
-        R.id.homeFragment
+        R.id.homeFragment,
+        R.id.settingsFragment
     )
 
     fun setFullscreenMode(window: Window, view: View, fullscreenMode: FullscreenMode) {

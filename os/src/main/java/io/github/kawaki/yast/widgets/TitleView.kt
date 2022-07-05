@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ViewTitleBinding
 
+@AndroidEntryPoint
 class TitleView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet,
