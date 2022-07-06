@@ -1,4 +1,4 @@
-package io.github.kawaki.yast.enum
+package io.github.kawaki.yast.utils
 
 enum class FullscreenMode {
 

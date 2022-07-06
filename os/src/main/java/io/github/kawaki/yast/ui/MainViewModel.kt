@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.kawaki.yast.R
-import io.github.kawaki.yast.enum.FullscreenMode
+import io.github.kawaki.yast.utils.FullscreenMode
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
