@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ActivityMainBinding
-import io.github.kawaki.yast.enum.FullscreenMode
+import io.github.kawaki.yast.utils.FullscreenMode
 import io.github.kawaki.yast.ui.base.BaseActivity
 
 @AndroidEntryPoint
