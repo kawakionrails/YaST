@@ -16,9 +16,14 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
 
-    val getFragmentsWithShell: MutableList<Int> = mutableListOf(
-        R.id.homeFragment,
-        R.id.settingsFragment
+    val getFragmentsWithoutShell: MutableList<Int> = mutableListOf(
+        R.id.splashFragment
+    )
+    val getFragmentsWithShellTransparency: MutableList<Int> = mutableListOf(
+        R.id.homeFragment
+    )
+    val getFragmentsWithWhiteClock: MutableList<Int> = mutableListOf(
+        R.id.homeFragment
     )
 
     fun setFullscreenMode(window: Window, view: View, fullscreenMode: FullscreenMode) {

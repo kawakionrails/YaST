@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setUpObservables() {
-        binding.root.setOnClickListener {
+        binding.settings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
         }
     }

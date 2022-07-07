@@ -23,13 +23,15 @@ class ButtonView @JvmOverloads constructor(
 
     init {
         context.withStyledAttributes(attrs, R.styleable.ButtonView) {
-            style = ButtonViewStyles.fromParams(
-                getInt(
-                    R.styleable.ButtonView_button_view_style,
-                    ButtonViewStyles.ROUNDED.style
+            style =
+                ButtonViewStyles.fromParams(
+                    getInt(
+                        R.styleable.ButtonView_button_view_style,
+                        ButtonViewStyles.ROUNDED.style
+                    )
                 )
-            )
-            text = getString(R.styleable.ButtonView_button_view_text)
+            text =
+                getString(R.styleable.ButtonView_button_view_text)
         }
         setUpView()
     }
