@@ -43,15 +43,38 @@
             tools:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/airplaneMode"
+            style="@style/Image"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="2.5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clock"
+            app:layout_constraintEnd_toStartOf="@+id/internet"
+            app:layout_constraintTop_toTopOf="@+id/clock"
+            app:srcCompat="@drawable/icon_airplane_mode" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/internet"
             style="@style/Image"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/clock"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/clock"
+            android:layout_marginEnd="2.5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/airplaneMode"
+            app:layout_constraintEnd_toStartOf="@+id/battery"
+            app:layout_constraintTop_toTopOf="@+id/airplaneMode"
             app:srcCompat="@drawable/icon_wi_fi" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/battery"
+            style="@style/Image"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/internet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/internet"
+            app:srcCompat="@drawable/icon_battery" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.fragment.app.FragmentContainerView

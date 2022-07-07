@@ -79,8 +79,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         viewModel.getFragmentsWithWhiteClock.forEach {
             if (navController.currentDestination?.id == it) {
                 binding.clock.setTextColor(getColor(R.color.white))
+                binding.airplaneMode.setColorFilter(getColor(R.color.white))
+                binding.internet.setColorFilter(getColor(R.color.white))
+                binding.battery.setColorFilter(getColor(R.color.white))
             } else {
                 binding.clock.setTextColor(getColor(R.color.black))
+                binding.airplaneMode.setColorFilter(getColor(R.color.black))
+                binding.internet.setColorFilter(getColor(R.color.black))
+                binding.battery.setColorFilter(getColor(R.color.black))
             }
         }
     }
