@@ -42,16 +42,16 @@ class ButtonView @JvmOverloads constructor(
     private fun setUpStyle() {
         when (style) {
             ButtonViewStyles.ROUNDED_TOP_CORNERS -> {
-                binding.root.setBackgroundResource(R.drawable.background_view_button_top)
+                binding.root.setBackgroundResource(R.drawable.background_view_button_top_corners)
             }
             ButtonViewStyles.ROUNDED -> {
-                binding.root.setBackgroundResource(R.drawable.background_view_button_mid)
+                binding.root.setBackgroundResource(R.drawable.background_view_button_rounded)
             }
             ButtonViewStyles.ROUNDED_BOTTOM_CORNERS -> {
-                binding.root.setBackgroundResource(R.drawable.background_view_button_bot)
+                binding.root.setBackgroundResource(R.drawable.background_view_button_bottom_corners)
             }
             else -> {
-                binding.root.setBackgroundResource(R.drawable.background_view_button_mid)
+                binding.root.setBackgroundResource(R.drawable.background_view_button_rounded)
             }
         }
     }
