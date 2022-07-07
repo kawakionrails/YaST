@@ -15,6 +15,9 @@
 
     <declare-styleable name="ButtonView">
         <attr name="button_view_text" format="string" />
+        <attr name="button_view_callback" format="boolean" />
+        <attr name="button_view_callback_text" format="string" />
+        <attr name="button_view_forward" format="boolean" />
         <attr name="button_view_style" format="enum">
 
             <enum name="rounded_top_corners" value="0" />
@@ -22,5 +25,4 @@
             <enum name="rounded_bottom_corners" value="2" />
         </attr>
     </declare-styleable>
-
 </resources>

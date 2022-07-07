@@ -11,5 +11,7 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="blue">#FF0174FD</color>
     <color name="light_mode_background">#FFF2F1F6</color>
+    <color name="button_view_callback_color">#FF8D8D8D</color>
+    <color name="button_view_forward_color">#FFC1C1C1</color>
 
 </resources>
