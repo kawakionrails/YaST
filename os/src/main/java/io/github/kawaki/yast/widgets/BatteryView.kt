@@ -10,6 +10,6 @@ class BatteryView @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-
+    // TODO: Not yet implemented
 
 }

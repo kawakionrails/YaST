@@ -3,5 +3,6 @@
     <string name="app_name">YaST</string>
     <string name="lorem_ipsum">Lorem Ipsum</string>
     <string name="settings">Settings</string>
+    <string name="general">General</string>
 
 </resources>
