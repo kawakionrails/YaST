@@ -1,5 +1,7 @@
 package io.github.kawaki.yast.ui
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.view.View
 import android.view.Window
 import androidx.core.view.WindowCompat
@@ -7,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.utils.FullscreenMode
 import java.text.SimpleDateFormat
@@ -14,8 +17,9 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor(@ApplicationContext context: Context) : ViewModel() {
 
+    private val connectivityManager: ConnectivityManager by lazy { context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager }
     val getFragmentsWithoutShell: MutableList<Int> = mutableListOf(
         R.id.splashFragment
     )
