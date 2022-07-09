@@ -20,6 +20,7 @@ class TitleView @JvmOverloads constructor(
     private var binding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
     private var previousScreen: String? = null
     private var currentScreen: String? = null
+    var listener: (() -> Unit)? = null
 
     init {
         context.withStyledAttributes(attrs, R.styleable.TitleView) {
@@ -34,6 +35,7 @@ class TitleView @JvmOverloads constructor(
     private fun setUpView() {
         setUpPreviousScreen()
         setUpCurrentScreen()
+        setUpListener()
     }
 
     private fun setUpPreviousScreen() {
@@ -48,6 +50,12 @@ class TitleView @JvmOverloads constructor(
     private fun setUpCurrentScreen() {
         if (currentScreen != null) {
             binding.titleCurrentScreen.text = currentScreen
+        }
+    }
+
+    private fun setUpListener() {
+        binding.titleBackwardLayout.setOnClickListener {
+            listener?.invoke()
         }
     }
 

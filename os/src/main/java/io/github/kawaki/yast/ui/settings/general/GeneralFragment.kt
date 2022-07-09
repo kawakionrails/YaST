@@ -30,6 +30,9 @@ class GeneralFragment : BaseFragment<FragmentGeneralBinding>(FragmentGeneralBind
                 findNavController().popBackStack()
             }
         })
+        binding.general.listener = {
+            findNavController().popBackStack()
+        }
     }
 
 }
