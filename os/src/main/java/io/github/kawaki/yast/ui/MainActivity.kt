@@ -12,8 +12,8 @@ import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.kawaki.yast.R
 import io.github.kawaki.yast.databinding.ActivityMainBinding
-import io.github.kawaki.yast.utils.FullscreenMode
 import io.github.kawaki.yast.ui.base.BaseActivity
+import io.github.kawaki.yast.utils.FullscreenMode
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -62,11 +62,31 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private fun setUpShell() {
-        viewModel.getFragmentsWithShell.forEach {
-            if (navController.currentDestination?.id == it) {
+        viewModel.getFragmentsWithoutShell.forEach {
+            if (navController.currentDestination?.id != it) {
                 binding.shell.visibility = View.VISIBLE
             } else {
                 binding.shell.visibility = View.GONE
+            }
+        }
+        viewModel.getFragmentsWithShellTransparency.forEach {
+            if (navController.currentDestination?.id != it) {
+                binding.shell.setBackgroundColor(getColor(R.color.light_mode_background))
+            } else {
+                binding.shell.setBackgroundColor(getColor(R.color.transparent))
+            }
+        }
+        viewModel.getFragmentsWithWhiteClock.forEach {
+            if (navController.currentDestination?.id == it) {
+                binding.clock.setTextColor(getColor(R.color.white))
+                binding.airplaneMode.setColorFilter(getColor(R.color.white))
+                binding.internet.setColorFilter(getColor(R.color.white))
+                binding.battery.setColorFilter(getColor(R.color.white))
+            } else {
+                binding.clock.setTextColor(getColor(R.color.black))
+                binding.airplaneMode.setColorFilter(getColor(R.color.black))
+                binding.internet.setColorFilter(getColor(R.color.black))
+                binding.battery.setColorFilter(getColor(R.color.black))
             }
         }
     }

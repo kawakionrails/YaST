@@ -1,19 +1,18 @@
-package io.github.kawaki.yast.ui.settings
+package io.github.kawaki.yast.ui.settings.general
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.kawaki.yast.R
-import io.github.kawaki.yast.databinding.FragmentSettingsBinding
+import io.github.kawaki.yast.databinding.FragmentGeneralBinding
 import io.github.kawaki.yast.ui.base.BaseFragment
 import io.github.kawaki.yast.utils.OnSwipeTouchListener
 
 @AndroidEntryPoint
-class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
+class GeneralFragment : BaseFragment<FragmentGeneralBinding>(FragmentGeneralBinding::inflate) {
 
-    private val viewModel by viewModels<SettingsViewModel>()
+    private val viewModel by viewModels<GeneralViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,8 +30,8 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
                 findNavController().popBackStack()
             }
         })
-        binding.general.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_generalFragment)
+        binding.general.listener = {
+            findNavController().popBackStack()
         }
     }
 

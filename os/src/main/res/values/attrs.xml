@@ -3,6 +3,7 @@
 
     <declare-styleable name="AppView">
         <attr name="app_view_app_icon_image" format="reference" />
+        <attr name="app_view_app_icon_image_color" format="color" />
         <attr name="app_view_app_icon_background" format="color" />
         <attr name="app_view_app_name" format="string" />
     </declare-styleable>
@@ -12,4 +13,16 @@
         <attr name="title_view_current_screen" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="ButtonView">
+        <attr name="button_view_text" format="string" />
+        <attr name="button_view_callback" format="boolean" />
+        <attr name="button_view_callback_text" format="string" />
+        <attr name="button_view_forward" format="boolean" />
+        <attr name="button_view_style" format="enum">
+
+            <enum name="rounded_top_corners" value="0" />
+            <enum name="rounded" value="1" />
+            <enum name="rounded_bottom_corners" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>
