@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <io.github.kawaki.yast.widgets.ButtonView
+        android:id="@+id/general"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

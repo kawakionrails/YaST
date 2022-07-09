@@ -31,5 +31,16 @@
         android:id="@+id/settingsFragment"
         android:name="io.github.kawaki.yast.ui.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/generalFragment"
+        android:name="io.github.kawaki.yast.ui.settings.general.GeneralFragment"
+        android:label="fragment_general"
+        tools:layout="@layout/fragment_general" />
 </navigation>

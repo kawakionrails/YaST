@@ -11,7 +11,7 @@
         android:layout_marginStart="16dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/titleCurrentScreen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titleCurrentScreen">
@@ -19,6 +19,8 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/titleBackward"
             style="@style/Image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             app:srcCompat="@drawable/icon_backward"
             app:tint="@color/blue" />
 
