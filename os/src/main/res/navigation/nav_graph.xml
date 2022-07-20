@@ -5,6 +5,8 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
+    <include app:graph="@navigation/nav_settings" />
+
     <fragment
         android:id="@+id/splashFragment"
         android:name="io.github.kawaki.yast.ui.splash.SplashFragment"
@@ -23,24 +25,7 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_homeFragment_to_nav_settings"
+            app:destination="@id/nav_settings" />
     </fragment>
-
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="io.github.kawaki.yast.ui.settings.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
-
-        <action
-            android:id="@+id/action_settingsFragment_to_generalFragment"
-            app:destination="@id/generalFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/generalFragment"
-        android:name="io.github.kawaki.yast.ui.settings.general.GeneralFragment"
-        android:label="fragment_general"
-        tools:layout="@layout/fragment_general" />
 </navigation>
